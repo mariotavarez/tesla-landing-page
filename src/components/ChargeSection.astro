@@ -1,0 +1,25 @@
+---
+import Section from "./Section.astro";
+
+const { title, subtitle, color, background } = Astro.props;
+const urlBackground = background ? `/${background}.avif` : "none";
+---
+
+<Section title={title} subtitle={subtitle} color={color}>
+    <div slot="footer" class="flex gap-x-4 mx-auto">
+        <a
+            class="bg-gray-600 text-sm rounded font-medium text-white px-12 py-2 hover:border-gray-500 hover:bg-black hover:text-white inline-block transition-colors"
+            href="#">Orden personalizada</a
+        >
+        <a
+            class="bg-white text-sm rounded font-medium px-12 py-2 hover:bg-gray-600 hover:text-white inline-block transition-colors text-black"
+            href="#">Demostración de manejo</a
+        >
+    </div>
+    <img
+        slot="background"
+        class="object-center object-cover h-full w-full"
+        src={urlBackground}
+        alt={title}
+    />
+</Section>
